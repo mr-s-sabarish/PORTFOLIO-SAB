@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap" rel="stylesheet">
+
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+
+  <style>
+    body{
+      font-family: "Luxurious Roman", serif;
+    }
+  </style>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2e0f1f0e2.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition duration-500">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+
+      <div class="flex items-center gap-3">
+        <img src="https://i.ibb.co/JLcZ2N7/header-bg.png" class="w-10 border-2 border-indigo-500 shadow-md shadow-indigo-400 rounded-full" alt="Avatar"/>
+      <h1 class="text-xl font-bold text-indigo-600 dark:text-white">SABARISH</h1>
+      </div>
+      
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex font-bold space-x-6">
+        <a href="home.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+        <a href="about.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+        <a href="journey.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Journey</a>
+        <a href="services.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a> 
+        <a href="projects.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+        <a href="skills.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+        <a href="contact.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+      </nav>
+
+      <div class="flex justify-center items-center">
+        <!-- Dark Mode Toggle -->
+        <button id="dark-toggle" class="text-2xl text-indigo-500 focus:outline-none mr-2 transition">
+          <i id="dark-icon" class="fas fa-moon"></i>
+        </button>
+
+        <!-- Hamburger Menu -->
+        <button id="menu-btn" class="md:hidden focus:outline-none w-8 h-8 relative">
+          <svg id="icon-hamburger" class="w-8 h-8 text-indigo-600 dark:text-indigo-400 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" class="w-8 h-8 text-indigo-600 dark:text-indigo-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden fixed inset-0 bg-white dark:bg-gray-800 flex flex-col items-center justify-center text-center font-bold mt-8 space-y-10 text-xl md:hidden z-40">
+    <a href="home.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+    <a href="about.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+    <a href="journey.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Journey</a>
+    <a href="services.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+    <a href="projects.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+    <a href="skills.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+    <a href="contact.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+
+    <div>
+      <a href="" class="px-4 py-3 bg-indigo-600 text-white font-bold rounded-full shadow-md hover:bg-white hover:text-indigo-600 transition duration-300">
+        Download CV
+      </a>
+    </div>
+  </div>
+  
+<!-- Certificate Section -->
+<section id="certificate-section" class="py-20 px-4 my-20">
+    <div class="container mx-auto">
+      <!-- Filter and Search -->
+      <div class="flex gap-4 mb-6 justify-between items-center">
+        <input type="text" id="searchInput" class="px-4 py-2 border rounded-md focus:outline-none dark:bg-gray-700 dark:text-white" placeholder="Search certificates..." />
+        <div class="flex gap-2 overflow-x-auto">
+          <button class="filter-btn px-4 py-2 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-white rounded-lg hover:bg-blue-200 dark:hover:bg-blue-700 transition" onclick="filterCerts('all')">All</button>
+          <button class="filter-btn px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition" onclick="filterCerts('web')">Web</button>
+          <button class="filter-btn px-4 py-2 bg-green-100 dark:bg-green-800 text-green-700 dark:text-white rounded-lg hover:bg-green-200 dark:hover:bg-green-700 transition" onclick="filterCerts('javascript')">JavaScript</button>
+        </div>
+      </div>
+  
+      <!-- Certificate Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Certificate Card 1 -->
+        <div class="cert-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:scale-105 duration-300 relative" data-category="web">
+          <img src="/assets/cert 2.jpg" alt="Certificate 1" class="w-full h-48 object-contain bg-gray-100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Frontend Development</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">Issued by: FreeCodeCamp</p>
+            <div class="flex justify-between items-center">
+              <button onclick="openModal('/assets/cert 2.jpg')" class="text-sm text-blue-600 hover:underline">Preview</button>
+              <a href="/assets/cert 2.jpg" download class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Certificate Card 2 -->
+        <div class="cert-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:scale-105 duration-300 relative" data-category="javascript">
+          <img src="/assets/cert 3.jpg" alt="Certificate 2" class="w-full h-48 object-contain bg-gray-100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">JavaScript Basics</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">Issued by: Codecademy</p>
+            <div class="flex justify-between items-center">
+              <button onclick="openModal('/assets/cert 3.jpg')" class="text-sm text-blue-600 hover:underline">Preview</button>
+              <a href="/assets/cert 3.jpg" download class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Certificate Card 3 -->
+        <div class="cert-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:scale-105 duration-300 relative" data-category="web">
+          <img src="cert3.jpg" alt="Certificate 3" class="w-full h-48 object-contain bg-gray-100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">React Developer</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">Issued by: Udemy</p>
+            <div class="flex justify-between items-center">
+              <button onclick="openModal('cert3.jpg')" class="text-sm text-blue-600 hover:underline">Preview</button>
+              <a href="cert3.jpg" download class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Certificate Card 4 -->
+        <div class="cert-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:scale-105 duration-300 relative" data-category="javascript">
+          <img src="cert4.jpg" alt="Certificate 4" class="w-full h-48 object-contain bg-gray-100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">JavaScript Advanced</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">Issued by: Coursera</p>
+            <div class="flex justify-between items-center">
+              <button onclick="openModal('cert4.jpg')" class="text-sm text-blue-600 hover:underline">Preview</button>
+              <a href="cert4.jpg" download class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Add 4 more certificates below similarly -->
+        <!-- Card 5 -->
+        <div class="cert-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:scale-105 duration-300 relative" data-category="web">
+          <img src="cert5.jpg" alt="Certificate 5" class="w-full h-48 object-contain bg-gray-100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Full Stack Development</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">Issued by: EdX</p>
+            <div class="flex justify-between items-center">
+              <button onclick="openModal('cert5.jpg')" class="text-sm text-blue-600 hover:underline">Preview</button>
+              <a href="cert5.jpg" download class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 6 -->
+        <div class="cert-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:scale-105 duration-300 relative" data-category="javascript">
+          <img src="cert6.jpg" alt="Certificate 6" class="w-full h-48 object-contain bg-gray-100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Node.js Developer</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">Issued by: Pluralsight</p>
+            <div class="flex justify-between items-center">
+              <button onclick="openModal('cert6.jpg')" class="text-sm text-blue-600 hover:underline">Preview</button>
+              <a href="cert6.jpg" download class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 7 -->
+        <div class="cert-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:scale-105 duration-300 relative" data-category="web">
+          <img src="cert7.jpg" alt="Certificate 7" class="w-full h-48 object-contain bg-gray-100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Web Development Bootcamp</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">Issued by: The Odin Project</p>
+            <div class="flex justify-between items-center">
+              <button onclick="openModal('cert7.jpg')" class="text-sm text-blue-600 hover:underline">Preview</button>
+              <a href="cert7.jpg" download class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card 8 -->
+        <div class="cert-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:scale-105 duration-300 relative" data-category="javascript">
+          <img src="cert8.jpg" alt="Certificate 8" class="w-full h-48 object-contain bg-gray-100">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Angular Developer</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">Issued by: Udemy</p>
+            <div class="flex justify-between items-center">
+              <button onclick="openModal('cert8.jpg')" class="text-sm text-blue-600 hover:underline">Preview</button>
+              <a href="cert8.jpg" download class="text-blue-600 hover:text-blue-800">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- Certificate Preview Modal -->
+<div id="modal" class="fixed inset-0 hidden bg-black bg-opacity-70 z-50 flex items-center justify-center px-4">
+    <div class="relative w-full max-w-4xl bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg flex items-center justify-center">
+      <!-- Close Button -->
+      <button onclick="closeModal()" class="absolute top-3 right-3 bg-red-600 hover:bg-red-700 text-white rounded-lg px-3 py-1 text-sm z-10">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <!-- Image -->
+      <img id="modalImage" src="" alt="Certificate Preview"
+           class="mt-8 max-h-[70vh] w-auto object-contain rounded-md shadow-md" />
+    </div>
+  </div>
+  
+  
+  <script>
+    // Filter certificates by category
+    function filterCerts(category) {
+      const cards = document.querySelectorAll('.cert-card');
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'all' || cardCategory === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  
+    // Search certificates by title
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function() {
+      const searchText = searchInput.value.toLowerCase();
+      const cards = document.querySelectorAll('.cert-card');
+      cards.forEach(card => {
+        const cardTitle = card.querySelector('h3').textContent.toLowerCase();
+        if (cardTitle.includes(searchText)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  
+    // Open modal with certificate preview
+    function openModal(certImage) {
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = certImage;
+      const modal = document.getElementById('modal');
+      modal.classList.remove('hidden');
+    }
+  
+    // Close the modal
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.add('hidden');
+    }
+  
+    // Initial filter setup
+    filterCerts('all'); // By default, show all certificates
+  </script>
+  
+  
+
+
+
+    <!-- JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const menuBtn = document.getElementById("menu-btn");
+          const mobileMenu = document.getElementById("mobile-menu");
+          const navLinks = document.querySelectorAll(".nav-link");
+          const iconHamburger = document.getElementById("icon-hamburger");
+          const iconClose = document.getElementById("icon-close");
+          const darkToggle = document.getElementById("dark-toggle");
+          const darkIcon = document.getElementById("dark-icon");
+    
+          // Mobile menu toggle
+          menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            iconHamburger.classList.toggle("hidden");
+            iconClose.classList.toggle("hidden");
+          });
+    
+          // Close mobile menu on link click
+          navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("hidden");
+              iconHamburger.classList.remove("hidden");
+              iconClose.classList.add("hidden");
+            });
+          });
+    
+          // Dark mode toggle logic
+          function setDarkMode(enabled) {
+            if (enabled) {
+              document.documentElement.classList.add("dark");
+              darkIcon.classList.replace("fa-moon", "fa-sun");
+              localStorage.setItem("theme", "dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+              darkIcon.classList.replace("fa-sun", "fa-moon");
+              localStorage.setItem("theme", "light");
+            }
+          }
+    
+          darkToggle.addEventListener("click", () => {
+            const isDark = document.documentElement.classList.contains("dark");
+            setDarkMode(!isDark);
+          });
+    
+          // Load saved theme
+          const savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "dark") {
+            setDarkMode(true);
+          }
+    
+          // Fade in main content
+          document.querySelector("main").classList.add("opacity-100");
+        });
+      </script>
+      
+  
+  </body>
+  </html>

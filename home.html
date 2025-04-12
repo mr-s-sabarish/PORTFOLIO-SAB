@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap" rel="stylesheet">
+
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+
+  <style>
+    body{
+      font-family: "Luxurious Roman", serif;
+    }
+  </style>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2e0f1f0e2.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white transition duration-500">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+
+      <div class="flex items-center gap-3">
+        <img src="https://i.ibb.co/JLcZ2N7/header-bg.png" class="w-10 border-2 border-indigo-500 shadow-md shadow-indigo-400 rounded-full" alt="Avatar"/>
+      <h1 class="text-xl font-bold text-indigo-600 dark:text-white">SABARISH</h1>
+      </div>
+      
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex font-bold space-x-6">
+        <a href="home.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+        <a href="about.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+        <a href="journey.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Journey</a>
+        <a href="services.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+        <a href="projects.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+        <a href="skills.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+        <a href="contact.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+      </nav>
+
+      <div class="flex justify-center items-center">
+        <!-- Dark Mode Toggle -->
+        <button id="dark-toggle" class="text-2xl text-indigo-500 focus:outline-none mr-2 transition">
+          <i id="dark-icon" class="fas fa-moon"></i>
+        </button>
+
+        <!-- Hamburger Menu -->
+        <button id="menu-btn" class="md:hidden focus:outline-none w-8 h-8 relative">
+          <svg id="icon-hamburger" class="w-8 h-8 text-indigo-600 dark:text-indigo-400 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" class="w-8 h-8 text-indigo-600 dark:text-indigo-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden fixed inset-0 bg-white dark:bg-gray-800 flex flex-col items-center justify-center text-center font-bold mt-8 space-y-10 text-xl md:hidden z-40">
+    <a href="home.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+    <a href="about.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+    <a href="journey.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Journey</a>
+    <a href="services.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+    <a href="projects.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+    <a href="skills.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+    <a href="contact.html" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+
+    <div>
+      <a href="" class="px-4 py-3 bg-indigo-600 text-white font-bold rounded-full shadow-md hover:bg-white hover:text-indigo-600 transition duration-300">
+        Download CV
+      </a>
+    </div>
+  </div>
+
+
+  <style>
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .animate-fade-slide {
+      animation: fadeSlide 1s ease-out both;
+    }
+  </style>
+  
+
+<!-- Hero Section with Animation & Glassmorphism -->
+<section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-200 to-white dark:from-gray-900 dark:to-gray-800 px-4 pt-24">
+  <div class="hero-card backdrop-blur-lg bg-white/30 dark:bg-white/10 shadow-xl rounded-3xl p-8 sm:p-12 max-w-6xl w-full text-center border border-white/20 dark:border-white/10 animate-fade-slide">
+    
+    <!-- Profile Image -->
+    <img src="https://i.ibb.co/JLcZ2N7/header-bg.png" alt="Profile" class="w-32 h-32 mx-auto rounded-full border-2 border-white dark:border-gray-700 shadow-md mb-6" />
+
+    <!-- Intro Text -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+      Hi, I'm <span class="text-indigo-600 dark:text-indigo-400">SABARISH</span>
+    </h1>
+
+    <!-- Typed.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- Sub Intro -->
+    <h1 class="text-base md:text-xl font-extrabold text-gray-900 dark:text-white mb-4">
+      <span id="typed" class="whitespace-nowrap"></span>
+    </h1>
+
+    <script>
+      const typed = new Typed('#typed', {
+        strings: [
+          "</>A Passionate Web Developer.",
+          "Graphical Designer.",
+          "Web Designer."
+        ],
+        typeSpeed: 50,
+        backSpeed: 25,
+        backDelay: 1500,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|'
+      });
+    </script>
+
+    <!-- Description -->
+    <p class="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4">
+      Crafting beautiful and responsive web experiences. I blend creativity with code to bring ideas to life.
+    </p>
+
+    <!-- Social Icons -->
+    <div class="flex justify-center gap-4 mt-8 mb-8">
+      <!-- Facebook -->
+      <a href="#" class="relative group w-8 h-8 flex items-center justify-center rounded-full bg-white dark:bg-gray-900 shadow-lg transition-all duration-500 overflow-hidden">
+        <i class="fab fa-facebook-f text-blue-600 text-lg transition-all duration-300 group-hover:text-white z-10"></i>
+        <span class="absolute inset-0 bg-blue-600 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full z-0"></span>
+      </a>
+    
+      <!-- Instagram -->
+      <a href="#" class="relative group w-8 h-8 flex items-center justify-center rounded-full bg-white dark:bg-gray-900 shadow-lg transition-all duration-500 overflow-hidden">
+        <i class="fab fa-instagram text-pink-500 text-lg transition-all duration-300 group-hover:text-white z-10"></i>
+        <span class="absolute inset-0 bg-pink-500 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full z-0"></span>
+      </a>
+    
+      <!-- LinkedIn -->
+      <a href="#" class="relative group w-8 h-8 flex items-center justify-center rounded-full bg-white dark:bg-gray-900 shadow-lg transition-all duration-500 overflow-hidden">
+        <i class="fab fa-linkedin-in text-blue-700 text-lg transition-all duration-300 group-hover:text-white z-10"></i>
+        <span class="absolute inset-0 bg-blue-700 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full z-0"></span>
+      </a>
+    
+      <!-- Github -->
+      <a href="#" class="relative group w-8 h-8 flex items-center justify-center rounded-full bg-white dark:bg-black shadow-lg transition-all duration-500 overflow-hidden">
+        <i class="fab fa-github text-black text-lg transition-all duration-300 group-hover:text-white z-10"></i>
+        <span class="absolute inset-0 bg-black scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full z-0"></span>
+      </a>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="" class="inline-block px-6 py-3 bg-indigo-600 text-white font-bold rounded-full shadow-md hover:bg-white hover:text-indigo-600 transition duration-300">
+      Download CV
+    </a>
+  </div>
+</section>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const iconHamburger = document.getElementById("icon-hamburger");
+      const iconClose = document.getElementById("icon-close");
+      const darkToggle = document.getElementById("dark-toggle");
+      const darkIcon = document.getElementById("dark-icon");
+
+      // Mobile menu toggle
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        iconHamburger.classList.toggle("hidden");
+        iconClose.classList.toggle("hidden");
+      });
+
+      // Close mobile menu on link click
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          iconHamburger.classList.remove("hidden");
+          iconClose.classList.add("hidden");
+        });
+      });
+
+      // Dark mode toggle logic
+      function setDarkMode(enabled) {
+        if (enabled) {
+          document.documentElement.classList.add("dark");
+          darkIcon.classList.replace("fa-moon", "fa-sun");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          darkIcon.classList.replace("fa-sun", "fa-moon");
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      darkToggle.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        setDarkMode(!isDark);
+      });
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        setDarkMode(true);
+      }
+
+      // Fade in main content
+      document.querySelector("main").classList.add("opacity-100");
+    });
+  </script>
+
+</body>
+</html>
